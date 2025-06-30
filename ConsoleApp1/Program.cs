@@ -206,51 +206,7 @@ class Program
 
     #endregion
     
-        static void Main(string[] args)
-        {
-            Console.WriteLine("----- Single Responsibility Principle -----");
-
-            var paperPrinter = new PapperPrinter();
-            paperPrinter.Print("Kagiz cap olunur...");
-
-            var printer3d = new Printer3d();
-            printer3d.Printer3D("3D model cap olunur...");
-
-            Console.WriteLine("\n----- Open/Closed Principle -----");
-
-            var shapes = new List<IShape>
-    {
-        new Rectangle { Width = 5, Height = 4 },
-        new Circle { Radius = 3 }
-    };
-            var areaCalculator = new AreaCalculator();
-            Console.WriteLine("toplam sahe: " + areaCalculator.TotalArea(shapes));
-
-            Console.WriteLine("\n----- Liskov Substitution Principle -----");
-
-            Bird eagle = new Eagle();
-            eagle.Fly();
-
-            Bird ostrich = new Ostrich();
-            try
-            {
-                ostrich.Fly();                    
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Xeta: " + ex.Message);
-            }
-
-            Console.WriteLine("\n----- Interface Segregation Principle -----");
-
-            Console.WriteLine("bu prinsip interfeyslerin bolunmesini gosterir. Methodari class daxilinde test etmediyin ucun burada cagiris yoxdur.");
-
-            Console.WriteLine("\n----- Dependency Inversion Principle -----");
-
-            IMessageService service = new EmailService();
-            var notification = new Notification(service);
-            notification.Alert("Salam, bu mesaj Dependency Inversion ile gonderildi.");
-        }
+        
 
 
     
